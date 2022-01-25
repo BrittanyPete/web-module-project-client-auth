@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 const Login = () => {
     const initialState = {
@@ -8,6 +9,7 @@ const Login = () => {
     }
 
     const [credentials, setCredentials] = useState(initialState);
+    const { push } = useHistory();
 
     const handleChange = e => {
         const { name, value } = e.target;
@@ -26,6 +28,7 @@ const Login = () => {
                 localStorage.setItem('token', resp.data.token);
                 localStorage.setItem('role', resp.data.role);
                 localStorage.setItem('username', resp.data.username);
+                push('/friends');
             })
             .catch(err => {
                 console.log(err)
