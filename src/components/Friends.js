@@ -10,7 +10,7 @@ class Friends extends React.Component {
     componentDidMount() {
         axiosWithAuth().get('/friends')
             .then(resp => {
-                console.log('resp:', resp.data);
+                // console.log('resp:', resp.data);
                 this.setState({
                     friendsList: resp.data
                 });
@@ -24,9 +24,9 @@ class Friends extends React.Component {
 
     render() {
         return (
-        <div>
-            <h1>Friends List</h1>
-            <div>
+        <div className='friends'>
+            <h1 className='bigHeader'>Friends List</h1>
+            <div className='friendList'>
                 {
                     this.state.friendsList.map(friend => (
                         <h2 key={friend.id} >- {friend.name} - {friend.email}</h2>

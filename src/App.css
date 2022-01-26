@@ -1,38 +1,82 @@
 .App {
   text-align: center;
+  text-transform: uppercase;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto 5%;
+  width: 85%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h1 {
+  font-size: 2rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+div.links {
+  display: flex;
+  flex-direction: row;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  margin: 2%;
+  padding: 15px;
+  background-color: black;
+}
+
+hr {
+  border: 3px solid black;
+}
+
+.bigHeader {
+  font-size: 4rem;
+  font-weight: 700;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;  
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  /* margin: 1%; */
+}
+
+label {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin: 1vh;
+  font-size: 1.4rem;
+}
+
+input {
+  width: 25%;
+  padding: 7px;
+  background-color: black;
   color: white;
+  font-size: 1.2rem;
 }
 
-.App-link {
-  color: #61dafb;
+button {
+  width: 10%;
+  background-color: black;
+  color: white;
+  padding: 7px;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  margin: 1%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.friendList {
+  width: 70%;
+  text-align: left;
+  font-size: 1.4rem;
+  margin-left: 25%;
 }

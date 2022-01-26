@@ -10,36 +10,41 @@ import Logout from './components/Logout';
 
 
 function App() {
-  const isLoggedIn = localStorage.getItem('token');
+
+  const isLoggedIn = localStorage.getItem("token");
 
   return (
     <Router>
-    <div className="App">
-      <h1>Friends Database</h1>
-      <ul>
-        <li><Link to="/login">Login</Link></li>
-        
-        {
-          isLoggedIn && <li><Link to="/friends">Friends</Link></li>
-        }
-        {
-          isLoggedIn && <li><Link to="/friends/add">AddFriend</Link></li>
-        }
-        {
-          isLoggedIn && <li><Link to="/logout">Logout</Link></li>
-        }
-    
-        
+      <div className="App">
+        <header>
 
-      </ul>
-      <Switch>
-        <PrivateRoute exact path='/friends' component={Friends} />
-        <PrivateRoute path='/friends/add' component={AddFriend} />
-        <PrivateRoute path='/logout' component={Logout} />
-        <Route path='/login' component={Login} />
-        <Route path='/' component={Login}/>
-      </Switch>
-    </div>
+          <div>
+          <h1>Friends Database</h1>
+          </div>
+
+          <div className='links'>
+            <Link to="/login">Login</Link>
+          {isLoggedIn && (
+              <Link to="/friends">Friends</Link>
+          )}
+          {isLoggedIn && (
+              <Link to="/friends/add">AddFriend</Link>
+          )}
+          {isLoggedIn && (
+              <Link to="/logout">Logout</Link>
+          )}
+          </div>
+        </header>
+      <hr/>
+
+        <Switch>
+          <PrivateRoute exact path="/friends" component={Friends} />
+          <PrivateRoute path="/friends/add" component={AddFriend} />
+          <PrivateRoute path="/logout" component={Logout} />
+          <Route path="/login" component={Login} />
+          <Route path="/" component={Login} />
+        </Switch>
+      </div>
     </Router>
   );
 }

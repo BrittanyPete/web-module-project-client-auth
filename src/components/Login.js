@@ -24,7 +24,7 @@ const Login = () => {
         console.log(credentials);
         axios.post('http://localhost:9000/api/login', credentials)
             .then(resp => {
-                console.log('resp', resp)
+                // console.log('resp', resp)
                 localStorage.setItem('token', resp.data.token);
                 localStorage.setItem('role', resp.data.role);
                 localStorage.setItem('username', resp.data.username);
@@ -36,7 +36,9 @@ const Login = () => {
     }
 
     return(
-        <div>
+        <div className='login'>
+            <h1 className='bigHeader'>Login</h1>
+            <div className='form'>
             <form onSubmit={handleLogin}>
                 <label>Username:
                 <input 
@@ -56,8 +58,11 @@ const Login = () => {
                     placeholder='Password'
                 />
                 </label>
+                <div>
                 <button>Submit</button>
+                </div>
             </form>
+            </div>
         </div>
     )
 }

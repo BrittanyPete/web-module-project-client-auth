@@ -22,7 +22,7 @@ const AddFriend = () =>{
         console.log('newFriend:', newFriend)
         axiosWithAuth().post(`/friends`, newFriend)
             .then(resp => {
-                console.log('add resp:', resp)
+                // console.log('add resp:', resp)
                 push('/friends');
             })
             .catch(err => {
@@ -32,7 +32,7 @@ const AddFriend = () =>{
    
     return (
         <div>
-            <h1>Add Friend</h1>
+            <h1 className='bigHeader'>Add Friend</h1>
             <form onSubmit={handleSubmit}>
                 <label>Friend Name:
                     <input 
@@ -48,11 +48,12 @@ const AddFriend = () =>{
                         onChange={handleChange}
                     />
                 </label>
+                <div>
                 <button>Submit</button>
+                </div>
             </form>
         </div>
     )
-    
 }
 
 export default AddFriend;
