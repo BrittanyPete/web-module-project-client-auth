@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute';
 import Login from './components/Login';
 import Friends from './components/Friends';
+import AddFriend from './components/AddFriend';
 
 
 function App() {
@@ -17,17 +18,20 @@ function App() {
       <ul>
         <li><Link to="/login">Login</Link></li>
         
-          {
-            isLoggedIn && <li><Link to="/friends">FriendList</Link></li>
-          }
-        
-        {/* <li><Link to="/addFriend">AddFriend</Link></li>
-        <li><Link to="/logout">Logout</Link></li> */}
+        {
+          isLoggedIn && <li><Link to="/friends">Friends</Link></li>
+        }
+        {
+          isLoggedIn && <li><Link to="/friends/add">AddFriend</Link></li>
+        }
+    
+        {/* <li><Link to="/logout">Logout</Link></li> */}
+
       </ul>
       <Switch>
         <PrivateRoute exact path='/friends' component={Friends} />
-        {/* <Route path='/addFriend' component={AddFriend} />
-        <Route path='/logout' component={Logout} /> */}
+        <PrivateRoute path='/friends/add' component={AddFriend} />
+        {/* <Route path='/logout' component={Logout} /> */}
         <Route path='/login' component={Login} />
         <Route path='/' component={Login}/>
       </Switch>
