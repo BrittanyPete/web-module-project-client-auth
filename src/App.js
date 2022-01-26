@@ -6,6 +6,7 @@ import PrivateRoute from './components/PrivateRoute';
 import Login from './components/Login';
 import Friends from './components/Friends';
 import AddFriend from './components/AddFriend';
+import Logout from './components/Logout';
 
 
 function App() {
@@ -24,14 +25,17 @@ function App() {
         {
           isLoggedIn && <li><Link to="/friends/add">AddFriend</Link></li>
         }
+        {
+          isLoggedIn && <li><Link to="/logout">Logout</Link></li>
+        }
     
-        {/* <li><Link to="/logout">Logout</Link></li> */}
+        
 
       </ul>
       <Switch>
         <PrivateRoute exact path='/friends' component={Friends} />
         <PrivateRoute path='/friends/add' component={AddFriend} />
-        {/* <Route path='/logout' component={Logout} /> */}
+        <PrivateRoute path='/logout' component={Logout} />
         <Route path='/login' component={Login} />
         <Route path='/' component={Login}/>
       </Switch>
